@@ -25,7 +25,7 @@ struct Hashes {
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 struct Args {
-    /// Input files. Repeat for multiple files. Missing files are ignored.
+    /// Input files. Missing files are ignored.
     ///
     /// Specifying no input files is valid. In this case, the command will only run when outputs
     /// change.
@@ -36,14 +36,14 @@ struct Args {
     /// The more precisely you specify the inputs, the more powerful the caching will be.
     /// For example, if the command runs a script, and you specify the script as an input, the
     /// command will run if the script changes.
-    #[clap(short, long = "input-file", value_name = "FILE")]
+    #[clap(short, long = "input-files", value_name = "FILE", num_args=1..)]
     inputs: Vec<String>,
 
-    /// Output files. Repeat for multiple files. Missing files are ignored.
+    /// Output files. Missing files are ignored.
     ///
     /// Specifying no output files is valid. In this case, the command will only run when inputs
     /// change.
-    #[clap(short, long = "output-file", value_name = "FILE")]
+    #[clap(short, long = "output-files", value_name = "FILE", num_args=1..)]
     outputs: Vec<String>,
 
     /// Print debug information.
