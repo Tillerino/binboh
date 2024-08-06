@@ -8,7 +8,8 @@ It is intended to be used in larger builds to avoid redundant steps.
 
 ## Usage
 
-```binboh \
+```shell
+binboh \
     -i input_file_1 input_file_2 ... \
     -o output_file_1 output_file_2 ... \
     -- command to run ...
